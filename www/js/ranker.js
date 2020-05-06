@@ -22,21 +22,45 @@ items.push(new Item("Whisper of the Heart", "img/whisper.jpg"));
 items.push(new Item("Kiki's Delivery Service", "img/kiki.jpg"));
 items.push(new Item("Ponyo", "img/ponyo.jpg"));
 
-for(let i = 0; i < items.length; i++)
-{
-    for(let j = i+1; j < items.length; j++)
-    {
-        let onAClick = function() {
-            aImgEl.src = items[i].img;
-            aTextEl.textContent = items[i].name;
-        }
+let updateItems = function() {
+    aImgEl.src = items[i].img;
+    aTextEl.textContent = items[i].name;
 
-        let onBClick = function () {
-            bImgEl.src = "img/whisper.jpg";
-            bTextEl.textContent = "Whisper of the Heart";
-        }
+    bImgEl.src = items[j].img;
+    bTextEl.textContent = items[j].name;
+}
 
-        aEl.addEventListener("click", onAClick);
-        bEl.addEventListener("click", onBClick);
+let i = 1;
+let j = 0;
+
+updateItems();
+
+let increment = function () {
+    if(j == i-1) {
+        i += 1;
+        j = 0;
+    }else {
+        j += 1;
+    }
+
+    if(i >= items.length || j >= items.length) {
+        // Go to rank page
+        i = 0;
+        j = 0;
     }
 }
+
+let onAClick = function() {
+    items[i].points += 1;
+    increment();
+    updateItems();
+}
+
+let onBClick = function () {
+    items[j].points += 1;
+    increment();
+    updateItems();
+}
+
+aEl.addEventListener("click", onAClick);
+bEl.addEventListener("click", onBClick);
