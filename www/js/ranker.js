@@ -1,45 +1,42 @@
-let option_a = document.querySelector(".a");
-let option_b = document.querySelector(".b");
-let a_caption = document.querySelector(".a > figcaption");
-let b_caption = document.querySelector(".b > figcaption");
-let a_img = document.querySelector(".a > img");
-let b_img = document.querySelector(".b > img");
-
-let whisper = 0;
-let totoro = 0;
-let spirited = 0;
-
-option_a.addEventListener("click", select_a);
-option_b.addEventListener("click", select_b);
-
-/* $.getJSON("./elements.json", function(result) {
-    let elements = JSON.parse(result);
-}); */
-
-let elements = {
-    "names" : ["Cordova", "New"],
-    "imgs" : ["img/logo.png"],
-    "points" : [0]
+class Item{
+    constructor(name, img) {
+        this.name = name;
+        this.img = img;
+        this.points = 0;
+        this.betterThan = [];
+    }
 }
 
-function foo (){
-    a_caption.innerHTML = "elements.names[0]";
-    b_img.src = elements.imgs[0];
-}
+let aEl = document.getElementById("a");
+let aImgEl = document.querySelector("#a img");
+let aTextEl = document.querySelector("#a .text");
 
-function select_a()
+let bEl = document.getElementById("b");
+let bImgEl = document.querySelector("#b img");
+let bTextEl = document.querySelector("#b .text");
+
+let items = [];
+items.push(new Item("My Neighbour Totoro", "img/totoro.jpg"));
+items.push(new Item("Spirited Away", "img/spirited.jpg"));
+items.push(new Item("Whisper of the Heart", "img/whisper.jpg"));
+items.push(new Item("Kiki's Delivery Service", "img/kiki.jpg"));
+items.push(new Item("Ponyo", "img/ponyo.jpg"));
+
+for(let i = 0; i < items.length; i++)
 {
-    if(a_caption.innerHTML == "Spirited Away")
+    for(let j = i+1; j < items.length; j++)
     {
-        spirited += 1;
-    }
-    else if(a_caption.innerHTML == "My Neighbour Totoro")
-    {
-        totoro += 1;
-    }
+        let onAClick = function() {
+            aImgEl.src = items[i].img;
+            aTextEl.textContent = items[i].name;
+        }
 
-    a_img.src = "img/whisper.jpg";
-    a_caption.innerHTML = "Whisper of the Heart";
+        let onBClick = function () {
+            bImgEl.src = "img/whisper.jpg";
+            bTextEl.textContent = "Whisper of the Heart";
+        }
+
+        aEl.addEventListener("click", onAClick);
+        bEl.addEventListener("click", onBClick);
+    }
 }
-
-foo();

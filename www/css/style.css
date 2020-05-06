@@ -78,11 +78,11 @@ figcaption {
     font-size: 22px;
 }
 
-.a {
+#a {
     order: 0;
 }
 
-.b {
+#b {
     order: 2;
 }
 
@@ -100,4 +100,11 @@ footer {
     position: relative;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     bottom: -15px;
+}
+
+.git {
+    display: inline-block;
+    background-color: #222831;
+    height: auto;
+    width: auto;
 }
