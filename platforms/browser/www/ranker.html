@@ -33,8 +33,7 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-
+        <link rel="stylesheet" type="text/css" href="css/ranker.css">
         <title>Auto Ranker v0.2</title>
     </head>
     <body>
@@ -42,10 +41,21 @@
             <img src="img/menu.png">
         </header>
 
-        <main>
-            <h1 class="text"><a href="ranker.html">Start ranking</a></h1>
+        <h3 class="question text">Which do you like best?</h3>
 
-        </main>
+        <div class="flex">
+            <div class="option" id="a">
+                <img src="">
+                <figcaption class="text"></figcaption>
+            </div>
+
+            <p class="text or">or</p>
+
+            <div class="option" id="b">
+                <img src="">
+                <figcaption class="text"></figcaption>
+            </div>
+        </div>
 
         <footer>
             <h5 class="text">
@@ -54,5 +64,6 @@
         </footer>
 
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/ranker.js"></script>
     </body>
 </html>

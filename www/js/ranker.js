@@ -44,9 +44,9 @@ let increment = function () {
     }
 
     if(i >= items.length || j >= items.length) {
+        saveWinner();
         // Go to rank page
-        i = 0;
-        j = 0;
+        window.location.href = "results.html";
     }
 }
 
@@ -64,3 +64,17 @@ let onBClick = function () {
 
 aEl.addEventListener("click", onAClick);
 bEl.addEventListener("click", onBClick);
+
+let saveWinner = function() {
+    let winner = items[0];
+
+    for(let k = 0; k < items.length; k++)
+    {
+        if(items[k].points > winner.points)
+        {
+            winner = items[k];
+        }
+    }
+
+    localStorage.setItem('winner', JSON.stringify(winner));
+}
