@@ -22,6 +22,9 @@ items.push(new Item("Whisper of the Heart", "img/whisper.jpg"));
 items.push(new Item("Kiki's Delivery Service", "img/kiki.jpg"));
 items.push(new Item("Ponyo", "img/ponyo.jpg"));
 
+let i = 1;
+let j = 0;
+
 let updateItems = function() {
     aImgEl.src = items[i].img;
     aTextEl.textContent = items[i].name;
@@ -29,9 +32,6 @@ let updateItems = function() {
     bImgEl.src = items[j].img;
     bTextEl.textContent = items[j].name;
 }
-
-let i = 1;
-let j = 0;
 
 updateItems();
 
@@ -52,12 +52,14 @@ let increment = function () {
 
 let onAClick = function() {
     items[i].points += 1;
+    items[i].betterThan.push(j);
     increment();
     updateItems();
 }
 
 let onBClick = function () {
     items[j].points += 1;
+    items[j].betterThan.push(i);
     increment();
     updateItems();
 }
@@ -65,16 +67,36 @@ let onBClick = function () {
 aEl.addEventListener("click", onAClick);
 bEl.addEventListener("click", onBClick);
 
-let saveWinner = function() {
-    let winner = items[0];
-
-    for(let k = 0; k < items.length; k++)
+let saveWinner = function() 
+{
+    for(let k = 0; k < items.length; k++) 
     {
-        if(items[k].points > winner.points)
+        for(let l = k+1; l < items.length; l++)
         {
-            winner = items[k];
+            if(items[k].points == items[l].points) 
+            {
+                for(let m = 0; m < items[k].betterThan.length; m++)
+                {
+                    if(items[k].betterThan[m] == l)
+                    {
+                        items[k].points++;
+                        break;
+                    }
+                }
+                if(items[k].points == items[l].points)
+                {
+                    items[l].points++;
+                }
+                
+                k = 0;
+                l = 1;
+            }
         }
     }
 
-    localStorage.setItem('winner', JSON.stringify(winner));
+    items.sort( function(a, b){
+        return b.points - a.points;
+    });
+
+    localStorage.setItem('items', JSON.stringify(items));
 }
