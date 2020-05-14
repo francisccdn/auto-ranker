@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/upload.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> <!-- icons -->
+
+        <title>Auto Ranker v0.2</title>
+    </head>
+    <body>
+        <header>
+            <img src="img/menu.png">
+        </header>
+
+        <h2 class="text">Upload your own options</h2>
+        
+        <div class="flex">
+
+            <div class="option">
+                <div class="inForm">
+                    <label class="text" for="image">Image: </label>
+                    <input type="file" accept="image/*" name="image">
+                </div>
+
+                <div class="inForm">
+                    <label class="text" for="name">Name: </label>
+                    <input type="text" name="name">
+                </div>
+            </div>
+
+            <div class="option">
+                <div class="inForm">
+                    <label class="text" for="image">Image: </label>
+                    <input type="file" accept="image/*" name="image">
+                </div>
+
+                <div class="inForm">
+                    <label class="text" for="name">Name: </label>
+                    <input type="text" name="name">
+                </div>
+            </div>
+
+            <div class="option">
+                <div class="inForm">
+                    <label class="text" for="image">Image: </label>
+                    <input type="file" accept="image/*" name="image">
+                </div>
+
+                <div class="inForm">
+                    <label class="text" for="name">Name: </label>
+                    <input type="text" name="name">
+                </div>
+            </div>
+
+            <div class="icon-alone">
+                <span id="plus" aria-hidden="true" data-icon="&#x002b;"></span>
+                <span class="screen-reader-text">Add an option.</span>
+            </div>
+
+
+        </div>
+
+        <h1 class="text"><a href="ranker.html">Start ranking</a></h1>
+
+        <footer>
+            <h5 class="text">
+                made by Francisco Cunha <!-- <a href="https://github.com/francisccdn"><img class="git" src="img/github.png"></a> -->
+            </h5>
+        </footer>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/upload.js"></script>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+main {
+    text-align: center;
+    clear: both;
+	height: 70vh;
+}
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    
+}
+
+.inForm {
+	display: block;
+	margin: 15% 10%;
+}
+
+.option {
+	border: 3px solid #5c6b83;
+	border-radius: 10px;
+	transition: background-color 300ms;
+
+	display: inline-block;
+	width: 230px;
+	height: 200px;
+	margin: 2%;
+}
+
+.option:hover {
+	background-color: #5c6b83;
+}
+
+#plus {
+	font-size: 100px;
+	color: #5c6b83;
+	position: relative;
+	left: 50px;
+	transition: color 300ms;	
+}
+
+#plus:hover {
+	color: #ECECEC;
+}
+
+h2 {
+	position: relative;
+    text-align: center;
+    clear: left;
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 20vh;
+}
+
+a {
+    color: #5c6b83;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ececec;
+}
+
+.icon-alone {
+  display: inline-block; /* Fix for clickability issue in WebKit */
+}
+
+.screen-reader-text { /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+[data-icon]:before {
+  font-family: icons; /* BYO icon font, mapped smartly */
+  content: attr(data-icon);
+  speak: none; /* Not to be trusted, but hey. */
+}
