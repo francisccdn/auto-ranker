@@ -1,18 +1,30 @@
 let plus = document.querySelector(".icon-alone");
 let flexbox = document.querySelector(".flex");
 
-let createNewOption = function() {
-/*<div class="option">
-	<div class="inForm">
-	    <label class="text" for="image">Image: </label>
-	    <input type="file" accept="image/*" name="image">
-	</div>
+let nameEls = document.querySelectorAll(".option > .inForm > .name");
+let	figEls = document.querySelectorAll(".option > .inForm > .fig");
+let optionsLength = 3;
 
-	<div class="inForm">
-	    <label class="text" for="name">Name: </label>
-	    <input type="text" name="name">
-	</div>
-</div>*/
+let updateOptionEls = function() {
+	nameEls = document.querySelectorAll(".option > .inForm > .name");
+	figEls = document.querySelectorAll(".option > .inForm > .fig");
+	optionsLength = nameEls.length;
+}
+
+let createNewOption = function() {
+/*
+<div class="option">
+    <div class="inForm">
+        <label class="text" for="image">Image: </label>
+        <input class="fig" type="file" accept="image/*" name="image">
+    </div>
+
+    <div class="inForm">
+        <label class="text" for="name">Name: </label>
+        <input class="name" type="text" name="name">
+    </div>
+</div>
+*/
 
 	let option = document.createElement("div");
 	option.className = "option";
@@ -34,11 +46,13 @@ let createNewOption = function() {
 	label2.textContent = "Name: ";
 
 	let input1 = document.createElement("input");
+	input1.className = "fig";
 	input1.setAttribute("type", "file");
 	input1.setAttribute("accept", "image/*");
 	input1.name = "image";
 
 	let input2 = document.createElement("input");
+	input2.className = "name";
 	input2.setAttribute("type", "text");
 	input2.name = "name";
 
@@ -51,7 +65,27 @@ let createNewOption = function() {
 	option.appendChild(inForm2);
 
 	flexbox.insertBefore(option, plus);
+
+	updateOptionEls();
+}
+
+let onSubmitClick = function() {
+	let options = {
+		names : [],
+		imgs : [],
+		length : optionsLength
+	};
+
+	for (let i = 0; i < optionsLength; i++) {
+		options.names.push(nameEls[i].value);
+		options.imgs.push(figEls[i].value);
+	}
+
+	localStorage.setItem('options', JSON.stringify(options));
+
+	window.location.href = "ranker.html";
 }
 
 document.getElementById("plus").addEventListener("click", createNewOption);
-console.log("hi");
+
+document.getElementById("submit").addEventListener("click", onSubmitClick);
