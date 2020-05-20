@@ -44,8 +44,6 @@ footer {
 }
 
 .git {
-    display: inline-block;
-    background-color: #222831;
-    height: auto;
-    width: auto;
+    color: #ececec;
+    text-decoration: none;
 }

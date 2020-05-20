@@ -38,7 +38,7 @@ let createNewOption = function() {
 	let label1 = document.createElement("label");
 	label1.className = "text";
 	label1.htmlFor = "image";
-	label1.textContent = "Image: ";
+	label1.textContent = "Image URL: ";
 
 	let label2 = document.createElement("label");
 	label2.className = "text";
@@ -47,8 +47,7 @@ let createNewOption = function() {
 
 	let input1 = document.createElement("input");
 	input1.className = "fig";
-	input1.setAttribute("type", "file");
-	input1.setAttribute("accept", "image/*");
+	input1.setAttribute("type", "text");
 	input1.name = "image";
 
 	let input2 = document.createElement("input");
