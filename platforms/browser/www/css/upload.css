@@ -50,24 +50,23 @@ main {
 
 h2 {
 	position: relative;
-    text-align: center;
-    clear: left;
+  text-align: center;
+  clear: left;
 }
 
 h1 {
-    position: relative;
-    text-align: center;
-    font-size: 3em;
-    margin-bottom: 20vh;
+  position: relative;
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 20vh;
 }
 
-a {
-    color: #5c6b83;
-    text-decoration: none;
+#submit {
+  color: #5c6b83;
 }
 
-a:hover {
-    color: #ececec;
+#submit:hover {
+  color: #ececec;
 }
 
 .icon-alone {

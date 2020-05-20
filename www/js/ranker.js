@@ -15,12 +15,18 @@ let bEl = document.getElementById("b");
 let bImgEl = document.querySelector("#b img");
 let bTextEl = document.querySelector("#b .text");
 
+let userUpload = JSON.parse(localStorage.getItem('options'));
 let items = [];
-items.push(new Item("My Neighbour Totoro", "img/totoro.jpg"));
-items.push(new Item("Spirited Away", "img/spirited.jpg"));
-items.push(new Item("Whisper of the Heart", "img/whisper.jpg"));
-items.push(new Item("Kiki's Delivery Service", "img/kiki.jpg"));
-items.push(new Item("Ponyo", "img/ponyo.jpg"));
+for(let i = 0; i < userUpload.length; i++){
+    items.push(new Item(userUpload.names[i], userUpload.imgs[i]));
+}
+
+localStorage.removeItem('options');
+// items.push(new Item("My Neighbour Totoro", "img/totoro.jpg"));
+// items.push(new Item("Spirited Away", "img/spirited.jpg"));
+// items.push(new Item("Whisper of the Heart", "img/whisper.jpg"));
+// items.push(new Item("Kiki's Delivery Service", "img/kiki.jpg"));
+// items.push(new Item("Ponyo", "img/ponyo.jpg"));
 
 let i = 1;
 let j = 0;
